@@ -102,7 +102,111 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+    errorBtns[0].addEventListener('click', e => {
+      console.log('Console Log Demo');
+    });
+
+    errorBtns[1].addEventListener('click', e => {
+      console.error('Console Error Demo');
+    });
+
+    errorBtns[2].addEventListener('click', e => {
+      console.count('Console Count Demo');
+    });
+
+    errorBtns[3].addEventListener('click', e => {
+      console.warn('Console Warn Demo');
+    });
+
+    errorBtns[4].addEventListener('click', e => {
+      let number = 1 + 1;
+      const errorMsg = 'The number does not equal 3';
+      console.assert(number === 3, { number: number, errorMsg: errorMsg });
+    });
+
+    errorBtns[5].addEventListener('click', e => {
+      console.clear();
+    });
+
+    errorBtns[6].addEventListener('click', e => {
+      console.dir('Console Dir Demo');
+    });
+
+    errorBtns[7].addEventListener('click', e => {
+      console.dirxml('Console Dirxml Demo');
+    });
+
+    errorBtns[8].addEventListener('click', e => {
+      console.group('Group');
+    });
+
+    errorBtns[9].addEventListener('click', e => {
+      console.groupEnd('Group');
+    });
+
+    errorBtns[10].addEventListener('click',function(e){
+      console.table(['Number 1', 'Number 2', 'Number 3']);
+    });
+
+    errorBtns[11].addEventListener('click', () => {
+      console.time('Timer');
+    });
+
+    errorBtns[12].addEventListener('click', () => {
+      console.timeEnd('Timer');
+    });
+
+    errorBtns[13].addEventListener('click', () => {
+      function traceFunc() {
+        console.log('Console Trace Demo');
+        console.trace()
+      }
+      traceFunc();
+    });
+
+    errorBtns[14].addEventListener('click', () => {
+      console.log(thisError);
+    });
+
+    try {
+      errorBtns[15].addEventListener('click', () => {
+        console.log('Try phase');
+      });
+    } catch (err) {
+      console.log('Catch phase');
+    } finally {
+      console.log('Finally phase');
+    }
+
+    class customError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = 'customError';
+      }
+    }
+
+    try {
+      throw new CustomError('Custom error alert!');
+    } catch (err) {
+      console.log('Caught the custom error!');
+    }
+
+    if (window.onerror) {
+      let newHandler = console.log('Caught the error!');
+      window.onerror = newHandler;
+    }
   </script>
+
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "da28c75695c94ee29273f7f7ef7b770b",
+      application: "lab-9"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+    TrackJS.track('Testing TrackJS!');
+  </script>
+                        
 </body>
 
 </html>
